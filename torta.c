@@ -61,7 +61,7 @@ main( int argc, char *argv[ ], char *envp[ ] )
 
 {
 
-      int i,s,estado,Assar=4,comer=8;
+      int ct,controle,estado,Assar=4,comer=8;
 
       pthread_mutex_init(&mutex_Torta, NULL);
 
@@ -69,13 +69,13 @@ main( int argc, char *argv[ ], char *envp[ ] )
 
       pthread_create(&threads[1],NULL,comeu,(void *)&comer);
 
-      for(i=0; i<2; i++)
+      for(ct=0; ct<2; ct++)
 
       {          
 
-        s=pthread_join(threads[i], (void **) &estado);
+        controle=pthread_join(threads[ct], (void **) &estado);
 
-        if (s)
+        if (controle)
 
         {
 
@@ -85,7 +85,7 @@ main( int argc, char *argv[ ], char *envp[ ] )
 
         }
 
-        printf("O thread %d terminou com o estado %d\n",i,estado);
+        printf("O thread %d terminou com o estado %d\n",ct,estado);
 
     }
 
