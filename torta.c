@@ -1,5 +1,6 @@
 
 
+
 #include <pthread.h>
 
 #include <stdio.h>
@@ -32,5 +33,27 @@ pthread_exit(NULL);
 
 }
 
+
+
+
+void *Assou(void *quantidade)
+
+{
+
+      int *assado= (int *) quantidade;
+
+     
+
+pthread_mutex_lock(&mutex_Torta);
+
+Torta += *assado;
+
+
+
+pthread_mutex_unlock(&mutex_Torta);
+
+pthread_exit(NULL);
+
+}
 
 
